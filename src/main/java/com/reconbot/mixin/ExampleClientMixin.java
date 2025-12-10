@@ -27,7 +27,7 @@ public class ExampleClientMixin {
 	private void init(CallbackInfo info) {
 	public class ExampleClientMixin implements ClientModInitializer {
 
-    // Later: Add more blocks (perferably player made)
+    // Later: Add more blocks (perferably player made) You can also change or add your desired blocks to make it look for specific blocks. The format is Blocks.BLOCKNAME,
     private static final Set<Block> BASE_BLOCKS = Set.of(
         Blocks.CRAFTING_TABLE,
         Blocks.FURNACE,
@@ -130,7 +130,7 @@ public class ExampleClientMixin {
     }
 
     private void scanAreaForBases(net.minecraft.client.network.ClientPlayerEntity player, ClientWorld world) {
-        int radius = 32; // Radius around the bot to scan for bases and players
+        int radius = 32; // This is radius around the bot to scan for bases and players which can easily be changed. I originally set it at 32 to reduce lag.
         BlockPos playerPos = player.getBlockPos();
 
         for (int x = playerPos.getX() - radius; x < playerPos.getX() + radius; x++) {
@@ -142,7 +142,7 @@ public class ExampleClientMixin {
 
                     if (BASE_BLOCKS.contains(block)) {
                         logBaseCoordinates(currentPos, block);
-                        return; // If a base block is found, exit the method and save the cords to a txt and log it to the console
+                        return; // If a base block is found, it exits the method and save the cords to a txt and will log it to the console in the future
                     }
                 }
             }
